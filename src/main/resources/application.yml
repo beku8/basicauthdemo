@@ -1,0 +1,22 @@
+spring:
+  security:
+    user.password: ${SECURITY_USER_PASSWORD:password}
+    
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health,info,httptrace,sessions,heapdump"
+        
+logging:
+  level:
+    com.nomadays.common: DEBUG
+    com.nomadays.user: DEBUG
+    com.nomadays.sso: DEBUG
+    com.nomadays.memento: DEBUG
+    com.nomadays.evento: DEBUG
+    #to prevent error 'Skip invoking on', which causes log disappear problem
+    org.springframework.security.web.context.HttpSessionSecurityContextRepository: 'OFF'
+    org.springframework.security.web.util.matcher: 'OFF'
+    org.springframework.security: 'DEBUG'
+    com.netflix.discovery: 'OFF'
